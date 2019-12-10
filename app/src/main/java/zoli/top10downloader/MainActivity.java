@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             // Creating adapter and attaching it to the ListView resource
 //            ArrayAdapter<FeedEntry> arrayAdapter = new ArrayAdapter<FeedEntry>(MainActivity.this, R.layout.list_item, parseApplications.getApplications());
 //            listApps.setAdapter(arrayAdapter);
-            FeedAdapter feedAdapter = new FeedAdapter(MainActivity.this, R.layout.list_record, parseApplications.getApplications());
+            FeedAdapter<FeedEntry> feedAdapter = new FeedAdapter<>(MainActivity.this, R.layout.list_record, parseApplications.getApplications());
             listApps.setAdapter(feedAdapter);
 
         }
