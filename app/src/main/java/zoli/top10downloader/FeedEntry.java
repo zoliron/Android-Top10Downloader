@@ -6,7 +6,7 @@ public class FeedEntry {
     private String name;
     private String artist;
     private String releaseDate;
-    private String summery;
+    private String summary;
     private String imageURL;
 
     public String getName() {
@@ -33,12 +33,12 @@ public class FeedEntry {
         this.releaseDate = releaseDate;
     }
 
-    public String getSummery() {
-        return summery;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setSummery(String summery) {
-        this.summery = summery;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public String getImageURL() {
