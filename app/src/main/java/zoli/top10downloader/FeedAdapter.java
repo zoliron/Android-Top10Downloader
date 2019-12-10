@@ -34,19 +34,40 @@ public class FeedAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        ViewHolder viewHolder;
+
         if (convertView == null) {
             convertView = layoutInflater.inflate(layoutResource, parent, false);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        TextView tvName = convertView.findViewById(R.id.tvName);
-        TextView tvArtist = convertView.findViewById(R.id.tvArtist);
-        TextView tvSummary = convertView.findViewById(R.id.tvSummary);
+
+//        TextView tvName = convertView.findViewById(R.id.tvName);
+//        TextView tvArtist = convertView.findViewById(R.id.tvArtist);
+//        TextView tvSummary = convertView.findViewById(R.id.tvSummary);
 
         FeedEntry currentApp = applications.get(position);
 
-        tvName.setText(currentApp.getName());
-        tvArtist.setText(currentApp.getArtist());
-        tvSummary.setText(currentApp.getSummery());
+        viewHolder.tvName.setText(currentApp.getName());
+        viewHolder.tvArtist.setText(currentApp.getArtist());
+        viewHolder.tvSummary.setText(currentApp.getSummery());
 
         return convertView;
+    }
+
+    // Inner class which will hold the view parameters so we wont need to search for them every time
+    // Redundant the use of findViewById every time we search for it.
+    private class ViewHolder {
+        final TextView tvName;
+        final TextView tvArtist;
+        final TextView tvSummary;
+
+        ViewHolder(View v) {
+            this.tvName = v.findViewById(R.id.tvName);
+            this.tvArtist = v.findViewById(R.id.tvArtist);
+            this.tvSummary = v.findViewById(R.id.tvSummary);
+        }
     }
 }

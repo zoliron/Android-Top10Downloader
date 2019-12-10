@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 int charsRead;
                 char[] inputBuffer = new char[500];
-                while(true) {
+                while (true) {
                     charsRead = reader.read(inputBuffer);
                     if (charsRead < 0) {
                         break;
